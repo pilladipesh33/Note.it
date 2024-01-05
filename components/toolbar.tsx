@@ -11,7 +11,7 @@ import { useMutation } from "convex/react";
 
 type ToolbarProps = {
   initialData: Doc<"documents">;
-  preview?: "boolean";
+  preview?: boolean;
 };
 export const Toolbar = ({ initialData, preview }: ToolbarProps) => {
   const inputRef = useRef<ElementRef<"textarea">>(null);
