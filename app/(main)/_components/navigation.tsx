@@ -10,7 +10,7 @@ import {
   Settings,
   Trash,
 } from "lucide-react";
-import { useParams, usePathname } from "next/navigation";
+import { useParams, usePathname, useRouter } from "next/navigation";
 import { ElementRef, useEffect, useRef, useState } from "react";
 import { useMediaQuery } from "usehooks-ts";
 import { UserItem } from "./user-item";
@@ -30,6 +30,7 @@ import { useSetting } from "@/hooks/use-settings";
 import { Navbar } from "./navbar";
 
 export const Navigation = () => {
+  const router = useRouter();
   const params = useParams();
   const setting = useSetting();
   const search = useSearch();
@@ -120,7 +121,9 @@ export const Navigation = () => {
   };
 
   const handleCreateNote = () => {
-    const promise = create({ title: "New Untitled" });
+    const promise = create({ title: "New Untitled" }).then((documentId) =>
+      router.push(`/documents/${documentId}`),
+    );
 
     toast.promise(promise, {
       loading: "Creating new note...",

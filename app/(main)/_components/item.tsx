@@ -61,7 +61,7 @@ export const Item = ({
   ) => {
     event.stopPropagation();
     if (!id) return;
-    const promise = archive({ id });
+    const promise = archive({ id }).then(() => router.push(`/documents`));
 
     toast.promise(promise, {
       loading: "Moving to trash...",
@@ -85,7 +85,7 @@ export const Item = ({
         if (!expanded) {
           onExpand?.();
         }
-        // router.push(`/documents/${documentId}`);
+        router.push(`/documents/${documentId}`);
       },
     );
     toast.promise(promise, {
@@ -111,7 +111,7 @@ export const Item = ({
           className="h-full rounded-sm hover:bg-neutral-300 dark:hover:bg-neutral-600 mr-1"
           onClick={handleExpand}
         >
-          <ChevronIcon className="h-5 w-5 shrink-0 text-muted-foreground"/>
+          <ChevronIcon className="h-5 w-5 shrink-0 text-muted-foreground" />
         </div>
       )}
       {documentIcon ? (
