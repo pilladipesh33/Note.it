@@ -39,8 +39,8 @@ const DocumentIdPage = ({ params }: DocumentIdPageProps) => {
   };
   return (
     <div className="pb-40">
-      <div className="h-[35vh]"></div>
-      <div className="md:max-w-3xl lg:max-w-4xl mx-auto">
+      <div className="h-[5vh]"></div>
+      <div className="md:max-w-3xl lg:max-w-4xl mx-auto px-5">
         <Toolbar initialData={document} />
         <Editor onChange={onChange} initialContent={document.content} />
       </div>
