@@ -94,17 +94,17 @@ export const Toolbar = ({ initialData, preview }: ToolbarProps) => {
             </Button>
           </IconPicker>
         )}
-        {!initialData.coverImage && !preview && (
-          <Button
-            className="text-muted-foreground text-xs"
-            variant={"outline"}
-            size="sm"
-            onClick={() => {}}
-          >
-            <ImageIcon className="h-4 w-4 mr-2" />
-            Add cover
-          </Button>
-        )}
+        {/* {!initialData.coverImage && !preview && ( */}
+        {/*   <Button */}
+        {/*     className="text-muted-foreground text-xs" */}
+        {/*     variant={"outline"} */}
+        {/*     size="sm" */}
+        {/*     onClick={() => {}} */}
+        {/*   > */}
+        {/*     <ImageIcon className="h-4 w-4 mr-2" /> */}
+        {/*     Add cover */}
+        {/*   </Button> */}
+        {/* )} */}
       </div>
       {isEditing && !preview ? (
         <TextareaAutosize

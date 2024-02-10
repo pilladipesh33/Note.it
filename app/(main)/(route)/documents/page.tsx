@@ -42,11 +42,11 @@ const DocumentsPage = () => {
         className="hidden dark:block"
       />
       <h2 className="text-lg font-medium">
-        Welcome to {user?.firstName}&apos;s Notion
+        Welcome to {user?.firstName}&apos;s Write
       </h2>
       <Button onClick={handleCreateNote}>
         <PlusCircle className="h-4 w-4 mr-2" />
-        Create a note
+        Write a note
       </Button>
     </div>
   );

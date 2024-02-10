@@ -12,19 +12,19 @@ export const Logo = () => {
     <div className="hidden md:flex items-center gap-x-2">
       <Image
         className="dark:hidden"
-        src={"/logo.svg"}
+        src={"/logo.png"}
         height={"40"}
         width={"40"}
         alt="Logo"
       />
       <Image
         className=" hidden dark:block"
-        src={"/logo-dark.svg"}
+        src={"/logo-dark.png"}
         height={"40"}
         width={"40"}
         alt="Logo"
       />
-      <p className={cn("font-semibold", font.className)}>Notion</p>
+      <p className={cn("font-semibold", font.className)}>Write</p>
     </div>
   );
 };
