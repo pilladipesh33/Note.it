@@ -5,12 +5,13 @@ import { ThemeProvider } from "@/components/providers/theme-provider";
 import { ConvexClientProvider } from "@/components/providers/convex-provider";
 import { Toaster } from "sonner";
 import { ModalProvider } from "@/components/providers/modal-provider";
+import { CONSTANT } from "@/utils/constant";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Write",
-  description: "The connected workspace where better faster work happens.",
+  title: `${CONSTANT.TITLE}`,
+  description: "The connected workspace where better, faster work happens.",
   icons: [
     {
       media: "(prefers-color-scheme: light)",

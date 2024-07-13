@@ -4,6 +4,7 @@ import { Dialog, DialogContent, DialogHeader } from "@/components/ui/dialog";
 import { useSetting } from "@/hooks/use-settings";
 import { Label } from "../ui/label";
 import { ModeToggle } from "@/components/mode-toggle";
+import { CONSTANT } from "@/utils/constant";
 
 export const SettingModal = () => {
   const settings = useSetting();
@@ -18,8 +19,8 @@ export const SettingModal = () => {
           <div className="flex flex-col gap-y-1">
             <Label>Appearance</Label>
             <span className="text-[0.8rem] text-muted-foreground">
-              Customize how <span className="font-bold">Write</span> looks on
-              your device
+              Customize how <span className="font-bold">{CONSTANT.TITLE}</span>{" "}
+              looks on your device
             </span>
           </div>
           <ModeToggle />
