@@ -48,7 +48,6 @@ export const create = mutation({
       parentDocument: args.parentDocument,
       userId,
       isArchived: false,
-      isPublished: false,
     });
 
     return document;
@@ -240,10 +239,6 @@ export const getById = query({
       throw new Error("Not found");
     }
 
-    if (document.isPublished && !document.isArchived) {
-      return document;
-    }
-
     const userId = identity.subject;
 
     if (document.userId !== userId) {
@@ -261,7 +256,6 @@ export const update = mutation({
     content: v.optional(v.string()),
     coverImage: v.optional(v.string()),
     icon: v.optional(v.string()),
-    isPublished: v.optional(v.boolean()),
   },
   handler: async (ctx, args) => {
     const identity = await ctx.auth.getUserIdentity();

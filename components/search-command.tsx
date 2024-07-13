@@ -15,6 +15,7 @@ import {
   CommandList,
 } from "./ui/command";
 import { File } from "lucide-react";
+import { CONSTANT } from "@/utils/constant";
 
 export const SearchCommand = () => {
   const { user } = useUser();
@@ -54,7 +55,7 @@ export const SearchCommand = () => {
   return (
     <CommandDialog open={isOpen} onOpenChange={onClose}>
       <CommandInput
-        placeholder={`Search ${user?.fullName}'s Write Account...`}
+        placeholder={`Search ${user?.fullName}'s ${CONSTANT.TITLE} Account...`}
       />
       <CommandList>
         <CommandEmpty>NO Results found.</CommandEmpty>

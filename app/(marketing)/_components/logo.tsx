@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Poppins } from "next/font/google";
 import { cn } from "@/lib/utils";
+import { CONSTANT } from "@/utils/constant";
 
 const font = Poppins({
   subsets: ["latin"],
@@ -24,7 +25,7 @@ export const Logo = () => {
         width={"40"}
         alt="Logo"
       />
-      <p className={cn("font-semibold", font.className)}>Write</p>
+      <p className={cn("font-semibold", font.className)}>{CONSTANT.TITLE}</p>
     </div>
   );
 };

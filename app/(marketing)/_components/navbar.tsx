@@ -9,6 +9,7 @@ import { SignInButton, UserButton } from "@clerk/clerk-react";
 import { Button } from "@/components/ui/button";
 import { Spinner } from "@/components/spinner";
 import Link from "next/link";
+import { CONSTANT } from "@/utils/constant";
 
 export const Navbar = () => {
   const scrolled = useScrollTop();
@@ -22,7 +23,7 @@ export const Navbar = () => {
       )}
     >
       <Logo />
-      <div className="md:ml-auto md:justify-end justify-between w-full flex items-center gap-x-2">
+      <div className="md:ml-auto md:justify-end justify-between w-full flex items-center gap-x-2 overflow-hidden">
         {isLoading && <Spinner />}
         {!isAuthenticated && !isLoading && (
           <>
@@ -31,15 +32,15 @@ export const Navbar = () => {
                 Log in
               </Button>
             </SignInButton>
-            <SignInButton mode="modal">
-              <Button size={"sm"}>Get Write free</Button>
-            </SignInButton>
+            {/* <SignInButton mode="modal"> */}
+            {/*   <Button size={"sm"}>Get Write free</Button> */}
+            {/* </SignInButton> */}
           </>
         )}
         {isAuthenticated && !isLoading && (
           <>
             <Button variant={"ghost"} size={"sm"} asChild>
-              <Link href={"/documents"}>Enter Write</Link>
+              <Link href={"/documents"}>Enter {CONSTANT.TITLE}</Link>
             </Button>
             <UserButton />
           </>
