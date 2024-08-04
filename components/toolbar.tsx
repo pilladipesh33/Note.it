@@ -4,7 +4,7 @@ import { Doc } from "@/convex/_generated/dataModel";
 import TextareaAutosize from "react-textarea-autosize";
 import { IconPicker } from "./icon-picker";
 import { Button } from "./ui/button";
-import { ImageIcon, Smile, X } from "lucide-react";
+import { Smile, X } from "lucide-react";
 import { ElementRef, useRef, useState } from "react";
 import { api } from "@/convex/_generated/api";
 import { useMutation } from "convex/react";
@@ -94,26 +94,16 @@ export const Toolbar = ({ initialData, preview }: ToolbarProps) => {
             </Button>
           </IconPicker>
         )}
-        {/* {!initialData.coverImage && !preview && ( */}
-        {/*   <Button */}
-        {/*     className="text-muted-foreground text-xs" */}
-        {/*     variant={"outline"} */}
-        {/*     size="sm" */}
-        {/*     onClick={() => {}} */}
-        {/*   > */}
-        {/*     <ImageIcon className="h-4 w-4 mr-2" /> */}
-        {/*     Add cover */}
-        {/*   </Button> */}
-        {/* )} */}
       </div>
       {isEditing && !preview ? (
         <TextareaAutosize
           ref={inputRef}
           onBlur={disableInput}
           onKeyDown={onKeyDown}
-          value={value}
+          placeholder="New Untitled"
+          value={value !== 'New Untitled' ? value : ''}
           onChange={(e) => onInput(e.target.value)}
-          className="text-5xl bg-transparent font-bold break-words outline-none text-[#3f3f3f] dark:text-[#cfcfcf] resize-none"
+          className="overflow-hidden text-5xl bg-transparent font-bold break-words outline-none text-[#3f3f3f] dark:text-[#cfcfcf] resize-none"
         />
       ) : (
         <div

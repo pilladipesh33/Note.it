@@ -1,8 +1,9 @@
 "use client";
 
 import { BlockNoteEditor } from "@blocknote/core";
-import { BlockNoteView, useBlockNote } from "@blocknote/react";
-import "@blocknote/core/style.css";
+import { useCreateBlockNote } from "@blocknote/react";
+import { BlockNoteView } from "@blocknote/mantine"
+import "@blocknote/mantine/style.css";
 import { useTheme } from "next-themes";
 
 type EditorProps = {
@@ -11,22 +12,18 @@ type EditorProps = {
   editable?: boolean;
 };
 
-const Editor = ({ onChange, initialContent, editable }: EditorProps) => {
+const Editor = ({ initialContent }: EditorProps) => {
   const { resolvedTheme } = useTheme();
 
-  const editor: BlockNoteEditor = useBlockNote({
-    editable,
+  const editor: BlockNoteEditor = useCreateBlockNote({
     initialContent: initialContent ? JSON.parse(initialContent) : undefined,
-    onEditorContentChange(editor) {
-      onChange(JSON.stringify(editor.topLevelBlocks, null, 2));
-    },
-  });
+  })
 
   return (
     <div>
       <BlockNoteView
         editor={editor}
-        theme={resolvedTheme === "dark" ? "dark" : "light"}
+        theme={resolvedTheme === 'dark' ? 'dark' : 'light'}
       />
     </div>
   );
